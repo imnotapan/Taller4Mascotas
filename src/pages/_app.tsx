@@ -1,16 +1,17 @@
 import "../../public/style.css";
 
+import { merge } from "lodash";
 import { AppProps } from "next/app";
 import Head from "next/head";
 
-import { ChakraProvider, extendTheme } from "@chakra-ui/core";
+import { ChakraProvider, theme } from "@chakra-ui/core";
 
-const customTheme = extendTheme({
+const customTheme = merge(theme, {
   fonts: {
     body: "Montserrat, sans-serif",
     heading: "Montserrat, sans-serif",
   },
-});
+} as typeof theme);
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
