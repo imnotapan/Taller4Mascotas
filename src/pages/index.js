@@ -4,7 +4,7 @@ import { ProbandoJavascript } from "../components/ProbandoJavascript";
 import { ProbandoAPI } from "../components/ProbandoAPI";
 import { ProbandoListas } from "../components/ProbandoListas";
 import { ProbandoInput } from "../components/ProbandoInput";
-//chupalo fugit
+
 export default function IndexPage() {
   return (
     <Stack spacing="45px" padding="10px">
