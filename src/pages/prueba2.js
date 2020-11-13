@@ -14,8 +14,8 @@ export default () => {
     const [ isVisible, setIsVisible] = useState(true);
     return (
     <Navigation>
-        <Heading border="3px solid orange" width="500px">Sirugia</Heading>
-        <Accordion width="1000px" border="3px solid orange" hidden={!isVisible} >
+        <Heading border="3px solid black" width="500px">Sirugia</Heading>
+        <Accordion width="1000px" border="3px solid black" hidden={!isVisible} >
             <AccordionItem>
                 <AccordionButton>
                 <Box flex="1" textAlign="left">
