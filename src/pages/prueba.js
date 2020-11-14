@@ -15,7 +15,7 @@ export default () => {
     return (
     <Navigation>
         <Heading border="3px solid orange" width="500px">Sirugia</Heading>
-        <Accordion width="1000px" border="3px solid orange" hidden={!isVisible} >
+        <Accordion width="1000px" border="3px solid orange" hidden={!isVisible} defaultIndex={[0]} allowMultiple >
             <AccordionItem>
                 <AccordionButton>
                 <Box flex="1" textAlign="left">
@@ -75,12 +75,17 @@ export default () => {
             <Checkbox
             isChecked={checkedItems[0]}
             onChange={e => setCheckedItems([e.target.checked, checkedItems[1]])}
-            children="Weco"
+            children="Alcoholico"
             />
             <Checkbox
             isChecked={checkedItems[1]}
             onChange={e => setCheckedItems([checkedItems[0], e.target.checked])}
-            children="Maraco"
+            children="Bello"
+            />
+            <Checkbox
+            isChecked={checkedItems[1]}
+            onChange={e => setCheckedItems([checkedItems[0], e.target.checked])}
+            children="Precioso"
             />
         </Stack>
 

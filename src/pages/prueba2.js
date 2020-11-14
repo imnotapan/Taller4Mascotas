@@ -15,7 +15,7 @@ export default () => {
     return (
     <Navigation>
         <Heading border="3px solid black" width="500px">Sirugia</Heading>
-        <Accordion width="1000px" border="3px solid black" hidden={!isVisible} >
+        <Accordion width="1000px" border="3px solid black" hidden={!isVisible} defaultIndex={[0]} allowMultiple >
             <AccordionItem>
                 <AccordionButton>
                 <Box flex="1" textAlign="left">
