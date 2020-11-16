@@ -1,60 +1,31 @@
 {
-  "name": "info104_2020_2",
-  "version": "1.0.0",
-  "description": "",
-  "homepage": "https://github.com/PabloSzx/info104_2020_2#readme",
-  "bugs": {
-    "url": "https://github.com/PabloSzx/info104_2020_2/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PabloSzx/info104_2020_2.git"
-  },
-  "license": "MIT",
-  "author": "PabloSz",
-  "main": "src/pages/index.js",
+  "name": "nodejs-notes-app",
+  "version": "2.0.0",
+  "description": "Notes App",
+  "main": "index.js",
   "scripts": {
-    "build": "next build",
-    "dev": "concurrently --raw \"next -p 4000\" \"wait-on -s 1 http://localhost:4000 && open-cli http://localhost:4000\"",
-    "preinstall": "npx npm-force-resolutions",
-    "start": "next start"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
   },
-  "resolutions": {
-    "node-fetch": "2.6.1"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@chakra-ui/core": "^1.0.0-rc.5",
-    "@chakra-ui/icons": "^1.0.0-rc.8",
-    "@emotion/core": "^10.0.35",
-    "@emotion/styled": "^10.0.27",
-    "axios": "^0.20.0",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
-    "emotion": "^10.0.27",
-    "emotion-server": "^10.0.27",
+    "connect-mongo": "^3.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
-    "jason-server": "^3.0.0",
-    "lodash": "^4.17.20",
     "method-override": "^3.0.0",
     "mongoose": "^5.10.14",
-    "next": "^9.5.3",
-    "npm-force-resolutions": "0.0.3",
+    "morgan": "^1.10.0",
     "passport": "^0.4.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-icons": "^3.11.0"
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "@emotion/babel-preset-css-prop": "^10.0.27",
-    "@types/lodash": "^4.14.161",
-    "@types/node": "^14.11.2",
-    "@types/react": "^16.9.49",
-    "@types/react-dom": "^16.9.8",
-    "concurrently": "^5.3.0",
-    "open-cli": "^6.0.1",
-    "typescript": "^4.0.3",
-    "wait-on": "^5.2.0"
+    "dotenv": "^8.2.0",
+    "handlebars": "^4.7.6",
+    "nodemon": "^2.0.6"
   }
 }
