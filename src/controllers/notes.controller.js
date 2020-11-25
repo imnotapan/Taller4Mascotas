@@ -61,22 +61,33 @@ notesCtrl.renderNotes = async (req, res) => {
 notesCtrl.renderEditForm = async (req, res) => {
   const note = await Note.findById(req.params.id).lean();
   if (note.user != req.user.id) {
-    req.flash("error_msg", "Not Authorized");
+    req.flash("error_msg", "No estás autorizado para esto.");
     return res.redirect("/notes");
   }
   res.render("notes/edit-note", { note });
 };
 
+notesCtrl.renderSeeForm = async (req, res) => {
+  const note = await Note.findById(req.params.id).lean();
+  if (note.user != req.user.id) {
+    req.flash("error_msg", "No estás autorizado para esto.");
+    return res.redirect("/notes");
+  }
+  res.render("notes/see-notes", { note });
+};
+
+
 notesCtrl.updateNote = async (req, res) => {
-  const { title, description } = req.body;
-  await Note.findByIdAndUpdate(req.params.id, { title, description });
-  req.flash("success_msg", "Note Updated Successfully");
+  const { rut_usr, name_pet, type_pet, breed_pet, mark, color, date_born } = req.body;
+  await Note.findByIdAndUpdate(req.params.id, { rut_usr, name_pet, type_pet, breed_pet, mark, color, date_born });
+  req.flash("success_msg", "Datos actualizados correctamente");
   res.redirect("/notes");
 };
 
+
 notesCtrl.deleteNote = async (req, res) => {
   await Note.findByIdAndDelete(req.params.id);
-  req.flash("success_msg", "Note Deleted Successfully");
+  req.flash("success_msg", "Registro eliminado correctamente");
   res.redirect("/notes");
 };
 

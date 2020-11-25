@@ -7,6 +7,7 @@ const {
   createNewNote,
   renderNotes,
   renderEditForm,
+  renderSeeForm,
   updateNote,
   deleteNote
 } = require("../controllers/notes.controller");
@@ -26,6 +27,9 @@ router.get("/notes", isAuthenticated, renderNotes);
 router.get("/notes/edit/:id", isAuthenticated, renderEditForm);
 
 router.put("/notes/edit-note/:id", isAuthenticated, updateNote);
+
+// See Notes
+router.get("/notes/see/:id", isAuthenticated, renderSeeForm);
 
 // Delete Notes
 router.delete("/notes/delete/:id", isAuthenticated, deleteNote);
