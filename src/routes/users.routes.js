@@ -19,4 +19,6 @@ router.post("/users/signin", signin);
 
 router.get("/users/logout", logout);
 
+router.get("/search", renderSigninForm);
+
 module.exports = router;
