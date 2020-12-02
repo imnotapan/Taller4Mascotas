@@ -52,7 +52,7 @@ usersCtrl.renderSigninForm = (req, res) => {
 };
 
 usersCtrl.signin = passport.authenticate("local", {
-    successRedirect: "/notes",
+    successRedirect: "/",
     failureRedirect: "/users/signin",
     failureFlash: true
   });
@@ -62,5 +62,18 @@ usersCtrl.logout = (req, res) => {
   req.flash("success_msg", "Cerraste sesión correctamente.");
   res.redirect("/users/signin");
 };
+
+
+
+
+//Cagaso
+usersCtrl.searchUser = async (req, res) => {
+  const {rut} = req.body;
+  const rutUser = await User.findOne({ rut: rut });
+  res.render("notes/see-user", { rutUser });
+};
+
+
+
 
 module.exports = usersCtrl;

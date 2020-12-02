@@ -8,4 +8,8 @@ indexCtrl.renderAbout = (req, res) => {
   res.render('about');
 };
 
+indexCtrl.renderSearch = (req, res) => {
+  res.render('search');
+};
+
 module.exports = indexCtrl;

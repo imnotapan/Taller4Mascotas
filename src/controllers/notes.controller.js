@@ -3,6 +3,8 @@ const notesCtrl = {};
 // Models
 const Note = require("../models/Note");
 
+const User = require('../models/User');
+
 notesCtrl.renderNoteForm = (req, res) => {
   res.render("notes/new-note");
 };
@@ -44,7 +46,8 @@ notesCtrl.createNewNote = async (req, res) => {
     });
   } else {
     const newNote = new Note({ rut_usr, name_pet, type_pet, breed_pet, mark, color, date_born });
-    newNote.user = req.user.id;
+    const rutUser = await User.findOne({ rut: rut_usr });
+    newNote.user = rutUser._id;
     await newNote.save();
     req.flash("success_msg", "Registro creado correctamente");
     res.redirect("/notes");
