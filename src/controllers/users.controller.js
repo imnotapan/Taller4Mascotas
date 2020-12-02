@@ -68,11 +68,11 @@ usersCtrl.logout = (req, res) => {
 
 //Cagaso
 usersCtrl.searchUser = async (req, res) => {
-  const {rut} = req.body;
-  const rutUser = await User.findOne({ rut: rut });
+  const rut = req.body;
+  const rutUser = await User.findOne({ rut: rut }).lean();
+  console.log(rutUser);
   res.render("notes/see-user", { rutUser });
 };
-
 
 
 

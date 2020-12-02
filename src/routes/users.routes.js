@@ -6,7 +6,8 @@ const {
   renderSigninForm,
   signin,
   logout,
-  searchUser
+
+  searchUser,
 } = require("../controllers/users.controller");
 
 // Routes
@@ -20,8 +21,9 @@ router.post("/users/signin", signin);
 
 router.get("/users/logout", logout);
 
-router.get("/users/see-user/:id", searchUser);
+//
+router.post("/users/see-user", searchUser);
+router.post("/search", searchUser);
 
-router.post("/users/search", searchUser);
 
 module.exports = router;
