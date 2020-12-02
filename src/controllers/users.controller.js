@@ -27,7 +27,7 @@ usersCtrl.singup = async (req, res) => {
     // Look for email coincidence
     const emailUser = await User.findOne({ email: email });
     const rutUser = await User.findOne({ rut: rut });
-    const type_usr = "B";
+    const type_usr = false;
     const password = rut.substring(4,8);
     if (emailUser) {
       req.flash("error_msg", "Este email ya está en uso.");
