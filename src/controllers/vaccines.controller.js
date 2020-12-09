@@ -36,10 +36,11 @@ vaccinesCtrl.createNewVaccines = async (req, res) => {
 };
 
 vaccinesCtrl.renderVaccines = async (req, res) => {
-    const vaccines = await Vaccines.find({ user: req.notes.id })
+    const note = await Note.findById(req.params.id).lean();
+    const vaccines = await Vaccines.find({ user: note._id })
         .sort({ date: "desc" })
         .lean();
-    res.render("vaccines/all-vaccines", { vaccines });
+    res.render("notes/see-notes", { vaccines });
 };
 
 

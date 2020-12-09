@@ -19,13 +19,12 @@
     </div>
   </div>
   {{else}}
-  <div class="card mx-auto">
-    <div class="card-body">
-      <h1>Hola {{user.name}}</h2>
-        <h4 clsss="lead">Aún no existen registros de mascotas asociados a esta cuenta.</h4>
-        <h7 clsss="lead">Acude a tu veterinario para añadir el registro de tu mascota.</h7>
-        <div align="center"><img width='385px' height='366px' src="/img/tecnico.jpg"></div>
-    </div>
+  <div class="card-body">
+    <h1>Hola {{user.name}}</h2>
+      <h4 clsss="lead">Aún no existen registros de mascotas asociados a esta cuenta.</h4>
+      <h7 clsss="lead">Acude a tu veterinario para añadir el registro de tu mascota.</h7>
+      <div align="center"><img width='385px' height='366px' src="/img/tecnico.jpg"></div>
   </div>
-  {{/each}}
+</div>
+{{/each}}
 </div>

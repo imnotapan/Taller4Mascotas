@@ -2,7 +2,7 @@ const notesCtrl = {};
 
 // Models
 const Note = require("../models/Note");
-
+const Vaccines = require("../models/Vaccines")
 const User = require('../models/User');
 
 notesCtrl.renderNoteForm = (req, res) => {
@@ -63,17 +63,13 @@ notesCtrl.renderNotes = async (req, res) => {
 
 notesCtrl.renderEditForm = async (req, res) => {
   const note = await Note.findById(req.params.id).lean();
-  if (note.user != req.user.id) {
-    req.flash("error_msg", "No estás autorizado para esto.");
-    return res.redirect("/notes");
-  }
   res.render("notes/edit-note", { note });
 };
 
 notesCtrl.renderSeeForm = async (req, res) => {
   const note = await Note.findById(req.params.id).lean();
-
-  res.render("notes/see-notes", { note });
+  const vaccines = await Vaccines.find({ user: note._id }).lean();
+  res.render("notes/see-notes", { note,vaccines });
 };
 
 
