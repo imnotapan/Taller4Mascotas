@@ -21,15 +21,15 @@ router.get("/notes/add", isAuthenticated, renderNoteForm);
 router.post("/notes/new-note", isAuthenticated, createNewNote);
 
 // Get All Notes
-router.get("/notes", isAuthenticated, renderNotes);
+router.get("/notes", renderNotes);
 
 // Edit Notes
-router.get("/notes/edit/:id", isAuthenticated, renderEditForm);
+router.get("/notes/edit/:id", renderEditForm);
 
-router.put("/notes/edit-note/:id", isAuthenticated, updateNote);
+router.put("/notes/edit-note/:id", updateNote);
 
 // See Notes
-router.get("/notes/see/:id", isAuthenticated, renderSeeForm);
+router.get("/notes/see/:id", renderSeeForm);
 
 // Delete Notes
 router.delete("/notes/delete/:id", isAuthenticated, deleteNote);

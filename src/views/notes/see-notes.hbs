@@ -47,6 +47,24 @@
                 </div>
                 <div class="form-group">
                 </div>
+                {{#each vaccines}}
+                <div class="form-group">
+                    <h4>Vacuna:</h4>
+                    <h5>{{vaccines.name}}</h5>
+                    <hr style="width:100%;">
+                </div>
+                <div class="form-group">
+                </div>
+                <div class="form-group">
+                    <h4>Fecha:</h4>
+                    <h5>{{vaccines.date}}</h5>
+                    <hr style="width:100%;">
+                </div>
+                <div class="form-group">
+                </div>
+                {{/each}}
+                <a class="dropdown-item" href="/vaccines/add">Añadir Vacuna ‏‏‎‎‏‏‎‎<i
+                        class="fas fa-pencil-alt"></i></a>
             </form>
             <form action="/notes">
                 <button type="submit" class="btn btn-danger btn-block btn-sm">Volver a los registros</button>

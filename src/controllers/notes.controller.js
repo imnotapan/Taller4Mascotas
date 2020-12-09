@@ -72,10 +72,7 @@ notesCtrl.renderEditForm = async (req, res) => {
 
 notesCtrl.renderSeeForm = async (req, res) => {
   const note = await Note.findById(req.params.id).lean();
-  if (note.user != req.user.id) {
-    req.flash("error_msg", "No estás autorizado para esto.");
-    return res.redirect("/notes");
-  }
+
   res.render("notes/see-notes", { note });
 };
 
