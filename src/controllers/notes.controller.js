@@ -3,6 +3,7 @@ const notesCtrl = {};
 // Models
 const Note = require("../models/Note");
 const Vaccines = require("../models/Vaccines")
+const Operations = require("../models/Operations")
 const User = require('../models/User');
 
 notesCtrl.renderNoteForm = (req, res) => {
@@ -69,7 +70,8 @@ notesCtrl.renderEditForm = async (req, res) => {
 notesCtrl.renderSeeForm = async (req, res) => {
   const note = await Note.findById(req.params.id).lean();
   const vaccines = await Vaccines.find({ user: note._id }).lean();
-  res.render("notes/see-notes", { note,vaccines });
+  const operations = await Operations.find({ user: note._id }).lean();
+  res.render("notes/see-notes", { note,vaccines, operations });
 };
 
 

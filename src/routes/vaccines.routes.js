@@ -8,14 +8,13 @@ const {
   renderVaccines,
 } = require("../controllers/vaccines.controller");
 
-
+// See Notes
+router.get("/notes/see/:id", renderVaccines);
 // New Note
 router.get("/vaccines/add", renderVaccinesForm);
 
 router.post("/vaccines/new-vaccines", createNewVaccines);
 
-
-router.get("/notes/see/:id", renderVaccines);
 
 
 module.exports = router;

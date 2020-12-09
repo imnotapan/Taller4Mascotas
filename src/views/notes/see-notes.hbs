@@ -6,7 +6,6 @@
     </button>
 </div>
 {{/each}}
-
 <div class="col-md-4 mx-auto">
     <div class="card">
         <div class="card-header">
@@ -46,25 +45,59 @@
                     <hr style="width:100%;">
                 </div>
                 <div class="form-group">
-                </div>
-                {{#each vaccines }}
-                <div class="form-group">
-                    <h4>Vacuna:</h4>
-                    <h5>{{name}}</h5>
-                    <hr style="width:100%;">
-                </div>
-                <div class="form-group">
-                </div>
-                <div class="form-group">
-                    <h4>Fecha:</h4>
-                    <h5>{{date}}</h5>
-                    <hr style="width:100%;">
-                </div>
-                <div class="form-group">
-                </div>
-                {{/each}}
-                <a class="dropdown-item" href="/vaccines/add">Añadir Vacuna ‏‏‎‎‏‏‎‎<i
-                        class="fas fa-pencil-alt"></i></a>
+
+
+
+                    {{#each vaccines }}
+
+                    <div class="form-group">
+                        <h5>Vacuna:</h5>
+                        <h6>{{name}}</h6>
+                        <hr style="width:100%;">
+                    </div>
+                    <div class="form-group">
+                    </div>
+                    <div class="form-group">
+                        <h5>Fecha:</h5>
+                        <h6>{{date}}</h6>
+                        <hr style="width:100%;">
+                    </div>
+                    <div class="form-group">
+                    </div>
+
+                    {{/each}}
+
+                    {{#each operations }}
+
+                    <div class="form-group">
+                        <h5>Operación:</h5>
+                        <h6>{{name}}</h6>
+                        <hr style="width:100%;">
+                    </div>
+                    <div class="form-group">
+                    </div>
+
+                    <div class="form-group">
+                        <h5>Descripción:</h5>
+                        <h6>{{description}}</h6>
+                        <hr style="width:100%;">
+                    </div>
+                    <div class="form-group">
+                    </div>
+
+                    <div class="form-group">
+                        <h5>Fecha:</h5>
+                        <h6>{{date}}</h6>
+                        <hr style="width:100%;">
+                    </div>
+                    <div class="form-group">
+                    </div>
+
+                    {{/each}}
+                    <a class="dropdown-item" href="/vaccines/add">Añadir Vacuna ‏‏‎‎‏‏‎‎<i
+                            class="fas fa-pencil-alt"></i></a>
+                    <a class="dropdown-item" href="/operations/add">Añadir Operación ‏‏‎‎‏‏‎‎<i
+                            class="fas fa-pencil-alt"></i></a>
             </form>
             <form action="/notes">
                 <button type="submit" class="btn btn-danger btn-block btn-sm">Volver a los registros</button>
