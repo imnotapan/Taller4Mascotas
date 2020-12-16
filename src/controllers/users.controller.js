@@ -52,7 +52,7 @@ usersCtrl.renderSigninForm = (req, res) => {
 };
 
 usersCtrl.signin = passport.authenticate("local", {
-    successRedirect: "/notes",
+    successRedirect: "/",
     failureRedirect: "/users/signin",
     failureFlash: true
   });
@@ -76,13 +76,13 @@ usersCtrl.searchUser = async (req, res) => {
 
 //editar datos de contacto
 usersCtrl.renderEditForm = async (req, res) => {
-  const user = await User.findById(req.params.id).lean();
-  res.render("users/edit-user");
+  const userE = await User.findById(req.params.id).lean();
+  res.render("users/edit-user", {userE});
 };
 
 usersCtrl.updateUser = async (req, res) => {
-  const { name, rut, city, address, email, phone } = req.body;
-  await User.findByIdAndUpdate(req.params.id, { name, rut, city, address, email, phone });
+  const { city, address, email, phone } = req.body;
+  await User.findByIdAndUpdate(req.params.id, { city, address, email, phone });
   req.flash("success_msg", "Datos actualizados correctamente");
   res.redirect("/notes");
 };

@@ -9,6 +9,7 @@ const {
   renderEditForm,
   renderSeeForm,
   updateNote,
+  renderSeeInfoForm,
   deleteNote
 } = require("../controllers/notes.controller");
 
@@ -30,6 +31,9 @@ router.put("/notes/edit-note/:id", updateNote);
 
 // See Notes
 router.get("/notes/see/:id", renderSeeForm);
+
+// See Notes
+router.get("/notes/see-info/:id", renderSeeInfoForm);
 
 // Delete Notes
 router.delete("/notes/delete/:id", isAuthenticated, deleteNote);

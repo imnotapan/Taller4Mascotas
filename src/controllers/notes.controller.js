@@ -46,7 +46,8 @@ notesCtrl.createNewNote = async (req, res) => {
       date_born,
     });
   } else {
-    const newNote = new Note({ rut_usr, name_pet, type_pet, breed_pet, mark, color, date_born });
+    const obs_med = "";
+    const newNote = new Note({ rut_usr, name_pet, type_pet, breed_pet, mark, color, date_born, obs_med});
     const rutUser = await User.findOne({ rut: rut_usr });
     newNote.user = rutUser._id;
     await newNote.save();
@@ -72,6 +73,12 @@ notesCtrl.renderSeeForm = async (req, res) => {
   const vaccines = await Vaccines.find({ user: note._id }).lean();
   const operations = await Operations.find({ user: note._id }).lean();
   res.render("notes/see-notes", { note,vaccines, operations });
+};
+
+notesCtrl.renderSeeInfoForm = async (req, res) => {
+  const note = await Note.findById(req.params.id).lean();
+  const user2 = await User.findById({ _id: note.user }).lean();
+  res.render("notes/see-info", { note, user2 });
 };
 
 

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const { renderEditForm } = require("../controllers/notes.controller");
+const { renderEditForm } = require("../controllers/users.controller");
 const {
   renderSignUpForm,
   singup,
@@ -29,8 +29,8 @@ router.post("/users/see-user", searchUser);
 router.post("/search", searchUser);
 
 // Edit User
-router.get("/users/edit", renderEditForm);
+router.get("/users/edit/:id", renderEditForm);
 
-router.put("/users/edit-user", updateUser);
+router.put("/users/edit-user/:id", updateUser);
 
 module.exports = router;
