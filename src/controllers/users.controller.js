@@ -2,6 +2,7 @@ const usersCtrl = {};
 
 // Models
 const User = require('../models/User');
+const Note = require("../models/Note");
 
 // Modules
 const passport = require("passport");
@@ -66,12 +67,12 @@ usersCtrl.logout = (req, res) => {
 
 
 
-//Cagaso
+
 usersCtrl.searchUser = async (req, res) => {
   const {rut} = req.body;
   const rutUser = await User.findOne({ rut: rut }).lean();
-  console.log(rutUser);
-  res.render("users/see-user", { rutUser });
+  const notes = await Note.find({ user: rutUser._id }).lean();
+  res.render("users/see-user", { rutUser, notes });
 };
 
 //editar datos de contacto

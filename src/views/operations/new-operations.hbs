@@ -4,10 +4,7 @@
             <h3>Nueva Operación</h3>
         </div>
         <div class="card-body">
-            <form action="/operations/new-operations" method="POST">
-                <div class="form-group">
-                    <input name="name_pet" class="form-control" placeholder="Nombre de la mascota"></input>
-                </div>
+            <form action="/operations/new-operations/{{note._id}}" method="POST">
                 <div class=" form-group">
                     <input name="name" class="form-control" placeholder="Nombre de la operación"></input>
                 </div>

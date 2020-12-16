@@ -9,7 +9,7 @@ vaccinesCtrl.renderVaccinesForm = (req, res) => {
 };
 
 vaccinesCtrl.createNewVaccines = async (req, res) => {
-    const { name_pet, name, date} = req.body;
+    const { name, date} = req.body;
     const errors = [];
     if (!name) {
         errors.push({ text: "Porfavor ingresa el nombre de la vacuna." });
@@ -20,18 +20,18 @@ vaccinesCtrl.createNewVaccines = async (req, res) => {
     if (errors.length > 0) {
         res.render("vaccines/new-vaccines", {
         errors,
-        name_pet,
         name, 
         date,
         });
     } else {
         const newVaccines = new Vaccines({ name, date });
-        const idPet = await Note.findOne({ name_pet: name_pet });
-        newVaccines.user = idPet._id;
+        const note = await Note.findById(req.params.id).lean();
+        console.log(req.params.id);
+        newVaccines.user = note._id;
 
         await newVaccines.save();
         req.flash("success_msg", "Vacuna guardada correctamente");
-        res.redirect("/notes");
+        res.redirect("/notes/edit/"+note._id);
     }
 };
 

@@ -11,9 +11,9 @@ const {
 // See Notes
 router.get("/notes/see/:id", renderVaccines);
 // New Note
-router.get("/vaccines/add", renderVaccinesForm);
+router.get("/vaccines/add/:id", renderVaccinesForm);
 
-router.post("/vaccines/new-vaccines", createNewVaccines);
+router.post("/vaccines/new-vaccines/:id", createNewVaccines);
 
 
 

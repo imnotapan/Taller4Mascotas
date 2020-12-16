@@ -18,15 +18,46 @@
         <div class="form-group">
           <input type="text" name="name_pet" class="form-control" value="{{note.name_pet}}" />
         </div>
+
         <div class="form-group">
-          <textarea name="description" class="form-control">{{note.type_pet}}</textarea>
+          <input type="text" name="type_pet" class="form-control" value="{{note.type_pet}}" />
         </div>
+
         <div class="form-group">
-          <button class="btn btn-primary btn-block" type="submit">
-            Save
-          </button>
+          <input type="text" name="breed_pet" class="form-control" value="{{note.breed_pet}}" />
         </div>
+
+        <div class="form-group">
+          <input type="text" name="mark" class="form-control" value="{{note.mark}}" />
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="color" class="form-control" value="{{note.color}}" />
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="date_born" class="form-control" value="{{note.date_born}}" />
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="obs_med" class="form-control" value="{{note.obs_med}}" />
+        </div>
+
+        <div class="form-group">
+
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">
+              Guardar
+            </button>
+          </div>
       </form>
+      <form action="/vaccines/add/{{note._id}}">
+        <button type="submit" class="btn btn-danger btn-block btn-sm">Añadir una vacuna</button>
+      </form>
+      <div class="form-group">
+        <form action="/operations/add/{{note._id}}">
+          <button type="submit" class="btn btn-danger btn-block btn-sm">Añadir una operación</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>

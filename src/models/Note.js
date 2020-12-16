@@ -31,10 +31,16 @@ const NoteSchema = new Schema(
       required: true
     },
 
+    obs_med: {
+      type: String,
+      required: true
+    },
+
     user: {
       type: String,
       required: true
-    }
+    },
+
   },
   {
     timestamps: true

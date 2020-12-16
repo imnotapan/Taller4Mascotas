@@ -11,6 +11,7 @@ notesCtrl.renderNoteForm = (req, res) => {
 };
 
 notesCtrl.createNewNote = async (req, res) => {
+  const obs_med = " ";
   const { rut_usr, name_pet, type_pet, breed_pet, mark, color, date_born} = req.body;
   const errors = [];
   if (!rut_usr) {
@@ -46,13 +47,12 @@ notesCtrl.createNewNote = async (req, res) => {
       date_born,
     });
   } else {
-    const obs_med = "";
     const newNote = new Note({ rut_usr, name_pet, type_pet, breed_pet, mark, color, date_born, obs_med});
     const rutUser = await User.findOne({ rut: rut_usr });
     newNote.user = rutUser._id;
     await newNote.save();
     req.flash("success_msg", "Registro creado correctamente");
-    res.redirect("/notes");
+    res.redirect("/");
   }
 };
 
@@ -67,6 +67,18 @@ notesCtrl.renderEditForm = async (req, res) => {
   const note = await Note.findById(req.params.id).lean();
   res.render("notes/edit-note", { note });
 };
+
+
+notesCtrl.renderEditForm2 = async (req, res) => {
+  const note = await Note.findById(req.params.id).lean();
+  res.render("vaccines/new-vaccines", { note });
+};
+
+notesCtrl.renderEditForm3 = async (req, res) => {
+  const note = await Note.findById(req.params.id).lean();
+  res.render("operations/new-operations", { note });
+};
+
 
 notesCtrl.renderSeeForm = async (req, res) => {
   const note = await Note.findById(req.params.id).lean();
@@ -83,17 +95,18 @@ notesCtrl.renderSeeInfoForm = async (req, res) => {
 
 
 notesCtrl.updateNote = async (req, res) => {
-  const { rut_usr, name_pet, type_pet, breed_pet, mark, color, date_born } = req.body;
-  await Note.findByIdAndUpdate(req.params.id, { rut_usr, name_pet, type_pet, breed_pet, mark, color, date_born });
+  const { name_pet, type_pet, breed_pet, mark, color, date_born ,obs_med} = req.body;
+  await Note.findByIdAndUpdate(req.params.id, { name_pet, type_pet, breed_pet, mark, color, date_born, obs_med });
   req.flash("success_msg", "Datos actualizados correctamente");
-  res.redirect("/notes");
+
+  res.redirect("/notes/edit/"+req.params.id);
 };
 
 
 notesCtrl.deleteNote = async (req, res) => {
   await Note.findByIdAndDelete(req.params.id);
   req.flash("success_msg", "Registro eliminado correctamente");
-  res.redirect("/notes");
+  res.redirect("/");
 };
 
 module.exports = notesCtrl;

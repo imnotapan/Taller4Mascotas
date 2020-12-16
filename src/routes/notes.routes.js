@@ -9,6 +9,8 @@ const {
   renderEditForm,
   renderSeeForm,
   updateNote,
+  renderEditForm2,
+  renderEditForm3,
   renderSeeInfoForm,
   deleteNote
 } = require("../controllers/notes.controller");
@@ -37,5 +39,10 @@ router.get("/notes/see-info/:id", renderSeeInfoForm);
 
 // Delete Notes
 router.delete("/notes/delete/:id", isAuthenticated, deleteNote);
+
+
+router.get("/vaccines/add/:id", renderEditForm2);
+
+router.get("/operations/add/:id", renderEditForm3);
 
 module.exports = router;

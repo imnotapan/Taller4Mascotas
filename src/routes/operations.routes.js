@@ -11,9 +11,9 @@ const {
 // See Notes
 router.get("/notes/see/:id", renderOperations);
 // New Note
-router.get("/operations/add", renderOperationsForm);
+router.get("/operations/add/:id", renderOperationsForm);
 
-router.post("/operations/new-operations", createNewOperations);
+router.post("/operations/new-operations/:id", createNewOperations);
 
 
 
